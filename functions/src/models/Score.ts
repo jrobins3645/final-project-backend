@@ -1,6 +1,6 @@
 import { ObjectId } from "mongodb";
 
-export default interface Scores {
+export default interface Score {
   _id?: ObjectId;
   uid: string;
   date: string;
