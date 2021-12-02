@@ -1,11 +1,11 @@
 import * as functions from "firebase-functions";
 import express from "express";
 import cors from "cors";
-import userRouter from "./routes/userRouter";
+import profileRouter from "./routes/profileRouter";
 import scoreRouter from "./routes/scoreRouter";
 const app = express();
 app.use(cors());
 app.use(express.json());
-app.use("/users", userRouter);
+app.use("/profiles", profileRouter);
 app.use("/scores", scoreRouter);
 export const api = functions.https.onRequest(app);
