@@ -8,13 +8,14 @@ const errorResponse = (error: any, res: any) => {
   res.status(500).json({ message: "Internal Server Error" });
 };
 
-userRouter.get("/", async (req, res) => {
+userRouter.get("/:id", async (req, res) => {
   try {
+    const id: string = req.params.id;
     const client = await getClient();
     const results = await client
       .db()
       .collection<User>("users")
-      .find()
+      .find({ uid: id })
       .toArray();
     res.json(results);
   } catch (err) {
