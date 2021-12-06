@@ -48,4 +48,22 @@ profileRouter.post("/", async (req, res) => {
   }
 });
 
+// profileRouter.delete("/:id", async (req, res) => {
+//   try {
+//     const id: string = req.params.id;
+//     const client = await getClient();
+//     const result = await client
+//       .db()
+//       .collection<Profile>("profiles")
+//       .deleteOne({ _id: new ObjectId(id) });
+//     if (result.deletedCount) {
+//       res.sendStatus(204);
+//     } else {
+//       res.status(404).send("Not Found");
+//     }
+//   } catch (error) {
+//     errorResponse(error, res);
+//   }
+// });
+
 export default profileRouter;
