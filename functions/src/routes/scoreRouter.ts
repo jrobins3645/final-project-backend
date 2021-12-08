@@ -7,9 +7,9 @@ const errorResponse = (error: any, res: any) => {
   console.error("FAIL", error);
   res.status(500).json({ message: "Internal Server Error" });
 };
-
 scoreRouter.get("/", async (req, res) => {
   try {
+    console.log("hello");
     const client = await getClient();
     const results = await client
       .db()
@@ -17,7 +17,7 @@ scoreRouter.get("/", async (req, res) => {
       .find()
       .sort({ score: -1 })
       .toArray();
-    res.json(results);
+    res.status(201).json(results);
   } catch (err) {
     errorResponse(err, res);
   }
