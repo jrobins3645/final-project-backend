@@ -14,6 +14,7 @@ scoreRouter.get("/", async (req, res) => {
       .db()
       .collection<Score>("scores")
       .find()
+      .limit(25)
       .sort({ score: -1 })
       .toArray();
     res.status(201).json(results);
